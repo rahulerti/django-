@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>test</title>
+</head>
+<body>
+    <input type="text" class="in" placeholder="name">
+    <input type="text" class="pass" placeholder="password">
+    <button class="btn">submit</button>
+    
+        <script>
+            document.addEventListener("DOMContentLoaded", function() {
+                alert('Error:', error);  // Handle any error that occurred
+            });
+       
+            btn.addEventListener('click', () => {
+                const inpt = document.querySelector('.in').value;
+                const pass = document.querySelector('.pass').value;
+                const csrfToken = document.querySelector("#csrf_token").value;
+
+                const data = {
+                    name: inpt,
+                    password: pass
+                };
+
+                fetch('http://127.0.0.1:8000/app/', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        "X-CSRFToken": csrfToken
+                    },
+                    body: JSON.stringify(data)
+                })
+                .then(response => response.json())
+                .then(data => {
+                    alert('Success:', data);
+                })
+                .catch((error) => {
+                    alert('Error:', error);
+                });
+            });
+      
+    </script>
+</body>
+</html>
