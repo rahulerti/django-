@@ -10,38 +10,34 @@
     <input type="text" class="pass" placeholder="password">
     <button class="btn">submit</button>
     
-        <script>
-            document.addEventListener("DOMContentLoaded", function() {
-                alert('Error:', error);  // Handle any error that occurred
-            });
-       
-            btn.addEventListener('click', () => {
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            document.querySelector('.btn').addEventListener('click', () => {
                 const inpt = document.querySelector('.in').value;
                 const pass = document.querySelector('.pass').value;
-                const csrfToken = document.querySelector("#csrf_token").value;
-
+    
                 const data = {
                     name: inpt,
                     password: pass
                 };
-
-                fetch('http://127.0.0.1:8000/app/', {
+    
+                fetch('http://127.0.0.1:8000/save_use/', {  // Replace with your actual API endpoint
                     method: 'POST',
                     headers: {
-                        'Content-Type': 'application/json',
-                        "X-CSRFToken": csrfToken
+                        'Content-Type': 'application/json'
                     },
                     body: JSON.stringify(data)
                 })
                 .then(response => response.json())
                 .then(data => {
-                    alert('Success:', data);
+                    alert('Success: ' + JSON.stringify(data));
                 })
                 .catch((error) => {
-                    alert('Error:', error);
+                    alert('Error: ' + error);
                 });
             });
-      
+        });
     </script>
+    
 </body>
 </html>
