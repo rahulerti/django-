@@ -3,6 +3,7 @@ from django.http import JsonResponse
 import json
 from .connect import get_db  # import your MongoDB connection
 
+# models not needed for pymongo 
 @csrf_exempt
 def save_use(request):
     if request.method == 'POST':
