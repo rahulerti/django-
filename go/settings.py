@@ -84,7 +84,7 @@ WSGI_APPLICATION = 'go.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
-'''DATABASES = {
+DATABASES = {
     'default': {
         'ENGINE': 'djongo',  # Use djongo as the engine
         'NAME': 'go',  # Your MongoDB database name
@@ -93,7 +93,7 @@ WSGI_APPLICATION = 'go.wsgi.application'
             'host': 'mongodb://localhost:27017/',  # MongoDB connection
         }
     }
-}'''
+}
 
 
 # Password validation
@@ -139,4 +139,13 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 MONGO_URI = "mongodb://localhost:27017/"
 MONGO_DB_NAME = "your_db_name"
+
+# Add this line to import os
+import os
+
+# Add these lines:
+MEDIA_URL = '/media/'
+# Define the MEDIA_ROOT directory
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
 

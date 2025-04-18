@@ -16,10 +16,16 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-
+from django.conf import settings
+from django.conf.urls.static import static
 
 # Register your app url file models here. for connecting the app to the project
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('app.urls'),) #connect the app to the project '' is for empty route before the app route
 ]
+
+# Only in development
+if settings.DEBUG:
+    # Serve static files from the MEDIA_URL
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

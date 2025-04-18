@@ -5,5 +5,4 @@ from . import views
 # Register your models here. path for app views
 urlpatterns = [
    path('save_use/', views.save_use),
-  
 ]

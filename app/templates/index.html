@@ -8,6 +8,7 @@
 <body>
     <input type="text" class="in" placeholder="name">
     <input type="text" class="pass" placeholder="password">
+    <input type="file" class="file" placeholder="add">
     <button class="btn">submit</button>
     
     <script>
@@ -15,22 +16,23 @@
             document.querySelector('.btn').addEventListener('click', () => {
                 const inpt = document.querySelector('.in').value;
                 const pass = document.querySelector('.pass').value;
-    
-                const data = {
-                    name: inpt,
-                    password: pass
-                };
+                const fs = document.querySelector('.file').files[0];
+                
+                // Create a FormData object to hold the file and other data
+                const formData = new FormData();
+                formData.append('name',inpt);
+                formData.append('password', pass);
+                formData.append('file', fs);;
     
                 fetch('http://127.0.0.1:8000/save_use/', {  // Replace with your actual API endpoint
                     method: 'POST',
                     headers: {
-                        'Content-Type': 'application/json'
                     },
-                    body: JSON.stringify(data)
+                    body: formData // Send the FormData object as the request body
                 })
                 .then(response => response.json())
                 .then(data => {
-                    alert('Success: ' + JSON.stringify(data));
+                    alert('Success: ' + inpt + ' ' + pass );
                 })
                 .catch((error) => {
                     alert('Error: ' + error);
