@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+</head>
+<body>
+    <input type="text" class="in" placeholder="Username">
+    <input type="password" class="pas" placeholder="Password">
+    <button class="btn">Login</button>
+</body>
+</html>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        document.querySelector('.btn').addEventListener('click', () => {
+            const inpt = document.querySelector('.in').value;
+            const pass = document.querySelector('.pas').value;
+            alert(inpt + ' ' + pass);
+
+            // Now you can send the data to your backend using fetch
+            fetch('http://127.0.0.1:8000/login/', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                body: `username=${inpt}&password=${pass}`
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.message === "Login successful") {
+                    alert("You are logged in!");
+                } else {
+                    alert("Invalid credentials");
+                }
+            })
+            .catch(error => {
+                console.error("Error:", error);
+            });
+        });
+    });
+</script>

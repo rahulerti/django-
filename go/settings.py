@@ -86,14 +86,11 @@ WSGI_APPLICATION = 'go.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'djongo',  # Use djongo as the engine
-        'NAME': 'go',  # Your MongoDB database name
-         'ENFORCE_SCHEMA': False,  # Optional, helps with flexibility
-        'CLIENT': {
-            'host': 'mongodb://localhost:27017/',  # MongoDB connection
-        }
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+
 
 
 # Password validation
@@ -147,5 +144,7 @@ import os
 MEDIA_URL = '/media/'
 # Define the MEDIA_ROOT directory
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+DEBUG = True
 
 
