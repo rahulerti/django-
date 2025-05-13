@@ -48,8 +48,12 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
      'corsheaders',
-    'app', #register the app here to connect to the project
+    'app',
+     #register the app here to connect to the project
 ]
+LOGIN_URL = 'login'
+LOGIN_REDIRECT_URL = 'home'
+LOGOUT_REDIRECT_URL = 'login'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -88,10 +92,11 @@ WSGI_APPLICATION = 'go.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'djongo',
+        'NAME': 'auth_db',
     }
 }
+
 
 
 
@@ -137,7 +142,7 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 MONGO_URI = "mongodb://localhost:27017/"
-MONGO_DB_NAME = "your_db_name"
+MONGO_DB_NAME = "for_test"
 
 # Add this line to import os
 import os

@@ -1,10 +1,10 @@
 from django.urls import path
 from . import views
-''' path('web/', views.web),
-   path('app2/', views.index2),'''
-# Register your models here. path for app views
+from .views import save_order
+from .views import get_orders
+
+
 urlpatterns = [
-   path('save_use/', views.save_user),
-   path('login/', views.login_view),
-   path('signup/', views.signup),
+     path('order/', save_order),
+      path('get-orders/', get_orders),  # New endpoint to fetch data
 ]
