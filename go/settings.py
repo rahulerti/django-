@@ -33,7 +33,9 @@ CORS_ALLOW_ALL_ORIGINS = False  # Disable all origins
 
 # OR (for specific origins instead of allowing all)
 CORS_ALLOWED_ORIGINS = [
-    "http://localhost:5173",  # React dev server allowed
+    "http://localhost:5173", # React dev server allowed
+    "http://127.0.0.1:5173",  # Add if using 127.0.0.1
+    "http://localhost:3000",  # Optional if you're testing with CRA  
 ]
 
 # Allow credentials (cookies, authentication headers, etc.)
@@ -49,6 +51,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
      'corsheaders',
     'app',
+    "user",
      #register the app here to connect to the project
 ]
 LOGIN_URL = 'login'

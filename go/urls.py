@@ -22,7 +22,8 @@ from django.conf.urls.static import static
 # Register your app url file models here. for connecting the app to the project
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('app.urls'),) #connect the app to the project '' is for empty route before the app route
+    path('', include('app.urls')), #connect the app to the project '' is for empty route before the app route
+    path('app/', include('user.urls')),  # Connect user app URLs
 ]
 
 # Only in development
