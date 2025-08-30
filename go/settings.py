@@ -67,15 +67,16 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'go.wsgi.application'
-
+MONGO_URI="mongodb+srv://debnathrahul45795:rahul18182112@mongotoutube.hedlq.mongodb.net/"
+MONGO_DB_NAME="auth_db"
 
 # Database (MongoDB with Djongo)
 DATABASES = {
     'default': {
         'ENGINE': 'djongo',
-        'NAME': 'auth_db',
+        'NAME': os.environ.get("MONGO_DB_NAME"),
         'CLIENT': {
-            "host": "mongodb+srv://debnathrahul45795:rahul18182112@mongotoutube.hedlq.mongodb.net/",
+            "host": os.environ.get("MONGO_URI"),
         }
     }
 }
