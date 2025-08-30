@@ -1,6 +1,8 @@
 user login work
 user_login useeffect complete
-admin login and sign up ~(issue) its work with user token but order dashboard not
-admin dashboard orders ~(issue)
-user profile card (create)
-i change the user views.py token verification route (check is it work?)
+admin login and sign up 
+admin login ~(may work with user token check views.py)
+admin dashboard orders
+user profile card ~(style it )
+a navbar / menue for user profile ~(create)
+i change the user views.py token verification route 

@@ -133,3 +133,5 @@ def verify_token(request):
         'username': payload['username'],
         'role': payload['role']
     }, status=200)
+
+
