@@ -23,13 +23,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-d*-ojzxig2=1r=$4_klx6m80xz3bo%tel(s=%s!1$!rbtc3vxr'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-
-ALLOWED_HOSTS = []
+DEBUG = False
 
 
 # CORS settings
-CORS_ALLOW_ALL_ORIGINS = False  # Disable all origins
+CORS_ALLOW_ALL_ORIGINS = True # Disable all origins
 
 # OR (for specific origins instead of allowing all)
 CORS_ALLOWED_ORIGINS = [
@@ -146,7 +144,7 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-MONGO_URI = "mongodb://localhost:27017/"
+MONGO_URI = "mongodb+srv://debnathrahul45795:rahul18182112@mongotoutube.hedlq.mongodb.net/"
 MONGO_DB_NAME = "for_test"
 
 # Add this line to import os
@@ -155,8 +153,8 @@ import os
 # Add these lines:
 MEDIA_URL = '/media/'
 # Define the MEDIA_ROOT directory
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_ROOT = os.path.join(BASE_DIR,  "staticfiles")
 
-DEBUG = True
+DEBUG = False
 
 
