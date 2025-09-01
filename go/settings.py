@@ -11,8 +11,9 @@ ALLOWED_HOSTS = ["*"]  # Change "*" to your domain in production
 
 
 # CORS settings
-CORS_ALLOW_ALL_ORIGINS = False  # safer, allow only specific origins
+CORS_ALLOW_ALL_ORIGINS = True  # safer, allow only specific origins
 CORS_ALLOWED_ORIGINS = [
+    "https://rahulerti.github.io",
     "http://localhost:5173",
     "http://127.0.0.1:5173",
     "http://localhost:3000",
